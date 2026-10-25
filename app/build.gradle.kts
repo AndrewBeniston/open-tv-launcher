@@ -12,7 +12,7 @@ val signingProps = Properties().apply {
     if (file.exists()) file.inputStream().use { load(it) }
 }
 
-// Each builder's own values live in the git-ignored local.properties (README, "Build"): the
+// Each builder's own values live in the git-ignored local.properties (docs/install.md): the
 // Trakt API app's id and secret, and if wanted the app id and the Wikidata contact.
 val localProps = Properties().apply {
     val file = rootProject.file("local.properties")
