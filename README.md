@@ -2,11 +2,22 @@
 
 A home screen for Android TV and Google TV, built on your Trakt lists and Stremio. It runs on the TV, with no server.
 
-![Home](docs/images/home.png)
+![The Home screen, with the banner, the apps row and Continue Watching](docs/images/1-home.webp)
 
-![Details](docs/images/details.png)
-
-![All Apps](docs/images/all-apps.png)
+<table>
+  <tr>
+    <td width="50%"><img src="docs/images/2-banner.webp" alt="The banner, with the Resume and Details buttons"><br>Banner, with Resume and Details</td>
+    <td width="50%"><img src="docs/images/3-continue-watching.webp" alt="The Continue Watching row and the YouTube row"><br>Continue Watching and YouTube (blurred here)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/images/4-details.webp" alt="The Details page of a film"><br>Details</td>
+    <td width="50%"><img src="docs/images/5-movies-tab.webp" alt="The Movies tab"><br>Movies tab</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/images/6-all-apps.webp" alt="All Apps, in On Home, Other Apps and System groups"><br>All Apps</td>
+    <td width="50%"><img src="docs/images/7-screensaver.webp" alt="The screensaver, with the art and synopsis of a show"><br>Screensaver</td>
+  </tr>
+</table>
 
 ## Requirements
 
@@ -25,52 +36,20 @@ Paste this prompt into an AI coding assistant on your computer, such as Claude C
 
 ```text
 Help me install Open TV Launcher on my Android TV or Google TV.
-The repository is https://github.com/AndrewBeniston/open-tv-launcher.
-Read docs/install.md first. It has the details, and the scripts folder
-does most of the work. Adapt each step to my computer and my TV. Tell me
-what you will do before you do it.
+Repository: https://github.com/AndrewBeniston/open-tv-launcher
+Read docs/install.md and follow it. Adapt each step to my computer and TV.
 
-Goals, in order:
-1. Check the minimum with me: Stremio is installed on the TV, and I have
-   a Trakt account. If either is missing, stop and tell me what to do.
-2. Find out my operating system. Check for a JDK 17 or newer, the Android
-   SDK (command-line tools or Android Studio) and adb. Ask me before you
-   install anything.
-3. Clone the repository.
-4. Help me make a free Trakt API app in my browser on trakt.tv: any name,
-   and the redirect URI urn:ietf:wg:oauth:2.0:oob. Then write
-   local.properties with sdk.dir, TRAKT_CLIENT_ID, TRAKT_CLIENT_SECRET,
-   APPLICATION_ID (keep the default, app.opentvlauncher, unless I want
-   another) and WIKIDATA_CONTACT (optional). Never commit local.properties,
-   and never print the client secret.
-5. Make a signing key with scripts/make-keystore.sh, and build the release
-   APK. Tell me to back up the signing folder.
-6. Connect to the TV with adb. Help me turn on the developer options and
-   Wireless debugging or USB debugging. Explain that Google TV needs
-   pairing first, that the pairing port and the connect port differ and
-   can change, and that Wireless debugging turns off when the TV restarts.
-7. Before you change any TV setting, run scripts/tv-settings.sh backup,
-   and keep the file.
-8. Install the APK, grant READ_TV_LISTINGS, and walk me through the Trakt
-   sign-in on the TV.
-9. Offer the optional steps one at a time, and wait for my OK: the
-   screensaver, then the Home override (docs/home-override.md). Say what
-   each one does and how to undo it.
-10. Check that the launcher opens, the rows load, and the Home key works as
-    docs/home-override.md says. Then tell me what you did, and how to undo
-    each part. If something fails, read docs/troubleshooting.md.
-
-Safety rules:
-- Never disable, uninstall or clear the data of the TV's own launcher or
-  setup apps. On Google TV, never disable
-  com.google.android.apps.tv.launcherx or
-  com.google.android.tungsten.setupwraith: the TV can be left with a
-  black screen.
-- Ask me before every change on the TV.
-- Keep the undo commands ready: scripts/home-override.sh off,
-  scripts/tv-settings.sh restore, and adb uninstall.
-- Never push, publish or share my local.properties, my keys or my signing
-  folder.
+- First check that Stremio is on the TV and that I have a Trakt account.
+  If either is missing, stop and tell me.
+- Ask me before you install anything, and before every change on the TV.
+- Before you change a TV setting, back up the settings with
+  scripts/tv-settings.sh, and keep the file.
+- Never commit or print local.properties or the signing keys.
+- Never disable the TV's own launcher or setup apps. On Google TV, never
+  disable com.google.android.apps.tv.launcherx or
+  com.google.android.tungsten.setupwraith.
+- Offer the screensaver and the Home override one at a time, with undo.
+- At the end, tell me what you did and how to undo it.
 ```
 
 ## Manual install and more

@@ -14,10 +14,19 @@ These are the steps that the prompt in the [README](../README.md) asks an AI ass
 | A Trakt API application | Required and free. You make your own (step 2). |
 | YouTube, Netflix, BBC iPlayer | Each one is optional. The launcher hides what the TV does not have. |
 
+## Get the code
+
+```sh
+git clone https://github.com/AndrewBeniston/open-tv-launcher.git
+cd open-tv-launcher
+```
+
+Run the steps below in this folder.
+
 ## 1. Connect adb to the TV
 
 1. On the TV, turn on the developer options. On most TVs: Settings, About, then select the build number seven times. The menu names differ between TVs.
-2. In the developer options, turn on network debugging or Wireless debugging.
+2. In the developer options, turn on network debugging or Wireless debugging. Or turn on USB debugging, and connect the TV with a USB cable.
 3. Connect from the computer. Google TV's Wireless debugging needs a pairing code first:
 
 ```sh
@@ -25,6 +34,10 @@ adb pair <tv-address>:<pairing-port>     # Google TV, Wireless debugging only
 adb connect <tv-address>:<port>          # many Android TVs use port 5555
 adb devices                              # the first column is the serial for the steps below
 ```
+
+With USB debugging, skip `adb pair` and `adb connect`.
+
+The pairing port and the connect port are different, and they can change. Read both from the TV's Wireless debugging screen each time. Wireless debugging turns off when the TV restarts.
 
 ## 2. Make a Trakt API application
 
@@ -110,6 +123,13 @@ scripts/home-override.sh on <adb-serial>
 ```
 
 Or turn it on in the TV's Settings, Accessibility, Personal TV Launcher Home. The script adds only this service and keeps every other enabled service.
+
+## 10. Check that it works
+
+- The launcher opens, and after the Trakt sign-in the Trakt rows load.
+- With the Home override on, a short press of the Home key brings the launcher back.
+
+If something does not work, see [Troubleshooting](troubleshooting.md).
 
 ## Undo
 
