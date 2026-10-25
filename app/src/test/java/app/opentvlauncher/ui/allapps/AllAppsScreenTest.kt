@@ -79,7 +79,7 @@ class AllAppsScreenTest {
     @Test
     fun noSystemTileTitleRunsToTheCardEdge() {
         show()
-        listOf("Settings", "Play Store", "Google Launcher", "Personal TV\nLauncher").forEach { label ->
+        listOf("Settings", "Play Store", "Google Launcher", "Open TV\nLauncher").forEach { label ->
             val tile = compose.onNodeWithText(label).getUnclippedBoundsInRoot()
             val title = compose.onNodeWithText(label, useUnmergedTree = true)
             val layouts = mutableListOf<TextLayoutResult>()
@@ -114,6 +114,6 @@ class AllAppsScreenTest {
     @Test
     fun afterSettingsFocusIsOnTheLauncherTile() {
         show(startOnLauncher = true)
-        compose.onNode(isFocused()).assert(hasText("Personal TV\nLauncher"))
+        compose.onNode(isFocused()).assert(hasText("Open TV\nLauncher"))
     }
 }

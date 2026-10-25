@@ -54,7 +54,7 @@ fun SignInScreen(state: SignInState, onNewCode: () -> Unit, onSkip: () -> Unit, 
 
     Box(modifier.fillMaxSize()) {
         TintWash(tint = { SignInWash }, centerX = 0.85f, centerY = 0.10f, modifier = Modifier.fillMaxSize())
-        Label("Personal TV Launcher", type.eyebrow, LauncherColors.onSurfaceVariant, Modifier.at(75.dp))
+        Label("Open TV Launcher", type.eyebrow, LauncherColors.onSurfaceVariant, Modifier.at(75.dp))
         Label("Sign In to Trakt", type.bannerTitle, LauncherColors.onSurface, Modifier.at(94.dp))
         Label(
             "Use your phone to sign this TV in.",

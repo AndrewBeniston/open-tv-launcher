@@ -73,7 +73,7 @@ class NoStremioRouteTest {
     fun settingsOffersOnlyShowDetailsAndOkKeepsIt() {
         compose.onNodeWithContentDescription("All Apps").performClick()
         compose.waitForIdle()
-        compose.onNodeWithText("Personal TV\nLauncher").performClick()
+        compose.onNodeWithText("Open TV\nLauncher").performClick()
         compose.waitForIdle()
         compose.onNode(isFocused()).assert(hasText("Selecting a Title")).assert(hasText("Show Details"))
         compose.onNodeWithText("Open in Stremio").assertDoesNotExist()

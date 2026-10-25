@@ -236,7 +236,7 @@ class MainActivity : ComponentActivity() {
                             if (place.fromBar) {
                                 askBar(BarItem.OfButton(BarButton.Settings))
                             } else {
-                                // Back to All Apps, on the Personal TV Launcher tile.
+                                // Back to All Apps, on the Open TV Launcher tile.
                                 openApps(startOnLauncher = true)
                             }
                         },
@@ -542,7 +542,7 @@ class MainActivity : ComponentActivity() {
         askBar(BarItem.OfTab(Tab.Home))
     }
 
-    /** All Apps, as the Apps tab, with focus on its first tile, or on Personal TV Launcher after its Settings. */
+    /** All Apps, as the Apps tab, with focus on its first tile, or on Open TV Launcher after its Settings. */
     private fun openApps(startOnLauncher: Boolean = false) {
         appsTakesFocus = true
         appsStartOnLauncher = startOnLauncher

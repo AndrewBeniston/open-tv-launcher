@@ -44,7 +44,7 @@ private enum class Row { TraktAccount, SelectingATitle, Screensaver, About }
 
 /**
  * The launcher's Settings (design, "Settings, with the Selecting a Title row"), from All Apps >
- * Personal TV Launcher. Focus opens on Selecting a Title. The panel explains the focused row.
+ * Open TV Launcher. Focus opens on Selecting a Title. The panel explains the focused row.
  * The design's Inputs row belongs to the Philips only, so the Chromecast leaves it out. Without
  * Stremio ([stremioInstalled] false), Selecting a Title offers only Show Details (25 Oct 2026).
  */
@@ -82,7 +82,7 @@ fun SettingsScreen(
         TintWash(tint = { SettingsWash }, centerX = 0.80f, centerY = 0f, modifier = Modifier.fillMaxSize())
         Clock(Modifier.align(Alignment.TopEnd).padding(top = 28.dp, end = HomeLayout.sideMargin))
         Label("Settings", type.eyebrow, LauncherColors.onSurfaceVariant, Modifier.at(32.dp))
-        Label("Personal TV Launcher", type.pageTitle, LauncherColors.onSurface, Modifier.at(50.dp))
+        Label("Open TV Launcher", type.pageTitle, LauncherColors.onSurface, Modifier.at(50.dp))
 
         val rows = listOf(
             Triple(Row.TraktAccount, "Trakt Account", when {
@@ -168,8 +168,8 @@ private fun Panel(row: Row, signedIn: Boolean, titleAction: TitleAction, version
             }
             Row.SelectingATitle -> "Selecting a Title" to "Choose which page opens when you select a film or show."
             Row.Screensaver -> "Screensaver" to
-                "Shows Top Picks artwork. Press OK to open screensaver settings and select Personal TV Launcher."
-            Row.About -> "About" to "Personal TV Launcher, version $version."
+                "Shows Top Picks artwork. Press OK to open screensaver settings and select Open TV Launcher."
+            Row.About -> "About" to "Open TV Launcher, version $version."
         }
         Label(title, heading, LauncherColors.onSurface, Modifier.offset(24.dp, 22.dp))
         Label(body, type.meta, LauncherColors.onSurfaceVariant, Modifier.offset(24.dp, 60.dp).width(320.dp), maxLines = 4)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Personal TV Launcher</string>
-    <string name="screensaver_name">Personal TV Launcher</string>
-    <string name="home_key_service_name">Personal TV Launcher Home</string>
-    <string name="home_key_service_description">Opens Personal TV Launcher when Google Launcher appears or you press Home. Google Launcher remains enabled.</string>
+    <string name="app_name">Open TV Launcher</string>
+    <string name="screensaver_name">Open TV Launcher</string>
+    <string name="home_key_service_name">Open TV Launcher Home</string>
+    <string name="home_key_service_description">Shows Open TV Launcher when Google Launcher appears or you press Home. Google Launcher remains enabled.</string>
 </resources>

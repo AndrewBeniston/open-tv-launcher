@@ -29,7 +29,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-/** All Apps > Personal TV Launcher > Settings, and back, in the real activity. */
+/** All Apps > Open TV Launcher > Settings, and back, in the real activity. */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], qualifiers = "w960dp-h540dp-land-television-xhdpi", application = OfflineLauncherApp::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
@@ -45,7 +45,7 @@ class SettingsRouteTest {
         compose.waitForIdle()
         compose.onNodeWithContentDescription("All Apps").performClick()
         compose.waitForIdle()
-        compose.onNodeWithText("Personal TV\nLauncher").performClick()
+        compose.onNodeWithText("Open TV\nLauncher").performClick()
         compose.waitForIdle()
     }
 
@@ -68,7 +68,7 @@ class SettingsRouteTest {
         compose.runOnUiThread { compose.activity.onBackPressedDispatcher.onBackPressed() }
         compose.waitForIdle()
         compose.onNodeWithText("Selecting a Title", substring = true).assertDoesNotExist()
-        compose.onNode(isFocused()).assert(hasText("Personal TV\nLauncher"))
+        compose.onNode(isFocused()).assert(hasText("Open TV\nLauncher"))
     }
 
     /** The screensaver shows Top Picks, so its help must not say watchlist art. */

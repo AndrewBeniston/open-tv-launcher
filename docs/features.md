@@ -83,7 +83,7 @@ On Details, Remove from Watchlist changes to Add Back to Watchlist for 10 second
 
 ## Settings
 
-The bar's Settings button, or All Apps, then Personal TV Launcher:
+The bar's Settings button, or All Apps, then Open TV Launcher:
 
 - Trakt Account: sign in, or sign out with two presses of OK. Signing out removes the Trakt rows from Home.
 - Selecting a Title: see above.
@@ -96,7 +96,7 @@ All Apps is the bar's Apps tab. The narrow All tile on Home opens it with focus 
 
 - On Home: the apps of the apps row that the TV has. With none of them, this group is left out.
 - Other Apps: every other TV app, in label order, with its own icon. The list is read again each time the launcher comes to the front.
-- System: Settings, the Play Store, the TV's own home app with its own name (such as Google TV Home), and Personal TV Launcher (the launcher's own Settings).
+- System: Settings, the Play Store, the TV's own home app with its own name (such as Google TV Home), and Open TV Launcher (the launcher's own Settings).
 
 ## Screensaver
 

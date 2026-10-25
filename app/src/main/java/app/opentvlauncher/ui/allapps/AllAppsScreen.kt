@@ -73,8 +73,8 @@ private val UnderBarTop = 104.dp
 /**
  * All Apps (design, "All Apps"): the apps on Home, the TV's other apps, and the System group.
  * The System group is the way back to the TV's own home screen and to system Settings, and the
- * Personal TV Launcher tile opens the launcher's own Settings. The screen opens with focus on
- * YouTube, or on the Personal TV Launcher tile after Back from Settings ([startOnLauncher]).
+ * Open TV Launcher tile opens the launcher's own Settings. The screen opens with focus on
+ * YouTube, or on the Open TV Launcher tile after Back from Settings ([startOnLauncher]).
  * Back runs [onBack], except while not [active], as while the page fades out after another tab
  * was chosen. [installed] is null until the package list has loaded.
  *
@@ -109,7 +109,7 @@ fun AllAppsScreen(
     val homeLabel = installed?.homeLabel ?: "Google Launcher"
     val onHome = rememberSavedRowFocusMemory(apps.size)
     val otherFocus = rememberSavedRowFocusMemory(other.size)
-    // Settings, the Play Store when the TV has it, the TV's own home app, Personal TV Launcher.
+    // Settings, the Play Store when the TV has it, the TV's own home app, Open TV Launcher.
     val systemCount = if (playStore != null) 4 else 3
     val system = rememberSavedRowFocusMemory(systemCount)
     val stockHomeIndex = systemCount - 2
@@ -228,7 +228,7 @@ fun AllAppsScreen(
                     modifier = Modifier.rememberedFocusItem(system, stockHomeIndex).rowEnds(isFirst = false, isLast = false),
                 ) { HomeGlyph() }
                 SmallTile(
-                    label = "Personal TV\nLauncher",
+                    label = "Open TV\nLauncher",
                     tone = TileTones.other,
                     onClick = onOpenLauncherSettings,
                     twoLines = true,

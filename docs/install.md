@@ -80,7 +80,7 @@ To sideload an APK that you built before:
 adb -s <adb-serial> install -r build/app/outputs/apk/release/app-release.apk
 ```
 
-The app shows in the TV's apps list as Personal TV Launcher. It does not replace the TV's own home screen.
+The app shows in the TV's apps list as Open TV Launcher. It does not replace the TV's own home screen.
 
 ## 5. Back up the TV's settings
 
@@ -122,7 +122,7 @@ The Home override brings the launcher back when Google TV Home comes to the fron
 scripts/home-override.sh on <adb-serial>
 ```
 
-Or turn it on in the TV's Settings, Accessibility, Personal TV Launcher Home. The script adds only this service and keeps every other enabled service.
+Or turn it on in the TV's Settings, Accessibility, Open TV Launcher Home. The script adds only this service and keeps every other enabled service.
 
 ## 10. Check that it works
 
@@ -135,7 +135,7 @@ If something does not work, see [Troubleshooting](troubleshooting.md).
 
 | Part | Undo |
 | --- | --- |
-| Home override | `scripts/home-override.sh off <adb-serial>`, or Settings, Accessibility, Personal TV Launcher Home, Off. A force-stop of the launcher also turns it off. |
+| Home override | `scripts/home-override.sh off <adb-serial>`, or Settings, Accessibility, Open TV Launcher Home, Off. A force-stop of the launcher also turns it off. |
 | Every setting from step 5 | `scripts/tv-settings.sh restore <adb-serial> tv-settings-before.txt` |
 | The app | `adb -s <adb-serial> uninstall "$(scripts/app-id.sh)"`, or the TV's Settings, Apps |
 | Trakt | Remove the application from your Trakt account's connected apps on trakt.tv |

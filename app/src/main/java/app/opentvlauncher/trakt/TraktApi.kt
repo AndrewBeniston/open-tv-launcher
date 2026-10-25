@@ -226,7 +226,7 @@ class TraktApi(
 
     companion object {
         // Trakt's firewall refuses requests that carry no User-Agent.
-        const val USER_AGENT = "personal-tv-launcher/0.1"
+        const val USER_AGENT = "open-tv-launcher/0.1"
         const val PAGE_SIZE = 250
 
         /** 10,000 items: a guard against a wrong page count, far above a personal history. */
