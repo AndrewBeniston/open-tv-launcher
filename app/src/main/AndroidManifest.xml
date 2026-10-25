@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Trakt, and artwork from Metahub and Trakt. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Lets the launcher read other apps' TV channels (YouTube, Stremio). Not used yet.
+         Grant it once with: adb shell pm grant <package> android.permission.READ_TV_LISTINGS -->
+    <uses-permission android:name="android.permission.READ_TV_LISTINGS" />
+
+    <!-- Lets the launcher see and open other TV apps and the TV's own home screen
+         (Android 11 package visibility). -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
+    </queries>
+
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <application
+        android:name=".LauncherApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:banner="@drawable/banner"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PersonalTvLauncher">
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true">
+
+            <!-- An ordinary app on the TV's apps list. -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- No Home intent filter. Gate 2 failed on the Chromecast: with Google TV Home
+             (launcherx) disabled, boot looped on the setup recovery screen. Never disable it. -->
+
+        <!-- The Home override: brings the launcher back over Google's home. Off until it is
+             turned on over adb or in the TV's accessibility settings. Its own process keeps its
+             key filter quick while the launcher draws. -->
+        <service
+            android:name=".system.HomeKeyService"
+            android:exported="true"
+            android:label="@string/home_key_service_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:process=":override">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/home_key_service" />
+        </service>
+
+        <service
+            android:name=".screensaver.ScreensaverService"
+            android:exported="true"
+            android:label="@string/screensaver_name"
+            android:permission="android.permission.BIND_DREAM_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.dreams.DreamService" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

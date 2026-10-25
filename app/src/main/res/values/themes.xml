@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The window paints the design's surface colour, so no white frame shows before Compose draws. -->
+    <style name="Theme.PersonalTvLauncher" parent="android:Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@color/surface</item>
+        <item name="android:colorBackground">@color/surface</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- Focus shadows: the design asks for black at 60 %. -->
+        <item name="android:spotShadowAlpha">0.6</item>
+        <item name="android:ambientShadowAlpha">0.1</item>
+    </style>
+</resources>
